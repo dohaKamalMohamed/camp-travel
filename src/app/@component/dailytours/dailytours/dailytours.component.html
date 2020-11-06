@@ -1,10 +1,11 @@
+<button mat-raised-button color="primary">Create New</button>
 
 <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
 </mat-form-field>
 
-<button mat-raised-button style="background-color: black; color: white;">Create</button>
+
 
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
