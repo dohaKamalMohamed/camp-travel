@@ -1,0 +1,46 @@
+<div class="container" *ngIf="user">
+  <div class="form">
+    
+      
+   
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <img src="../../../../assets/logo.jpg" alt="Avatar">
+      <div class="form-group">
+        <mat-form-field appearance="legacy">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="email" class="form-control" name="email" id="email"
+            formControlName="email">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Please Enter Your Email</mat-hint>
+          <mat-error *ngIf="!f.email.valid && (submitted || f.email.touched)">
+            <p>
+              email is required
+            </p>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="legacy">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" class="form-control" placeholder=" Enter apassword" name="password"
+            id="password" formControlName="password">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Please Enter Your Password</mat-hint>
+          <mat-error *ngIf="!f.password.valid && (f.password.touched||submitted)">
+            <p>
+              password is required
+            </p>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <button mat-raised-button style="background-color: black; color: white;">LogIn</button>
+      <div *ngIf="errorMsg">
+        <p>{{errorMsg}}</p>
+      </div>
+    </form>
+
+  </div>
+</div>
