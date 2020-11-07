@@ -12,6 +12,9 @@ import { HomeComponent } from './@component/home/home/home.component';
 import { LoginComponent } from './@component/login/login/login.component';
 import { LongtoursComponent } from './@component/longtours/longtours/longtours.component';
 import { TodaybookingComponent } from './@component/todaybooking/todaybooking/todaybooking.component';
+import { shortTourService } from './@service/short_service.service';
+import { AddDailyToursComponent } from './@component/dailytours/add-daily-tours/add-daily-tours.component';
+import { AddLongToursComponent } from './@component/longtours/add-long-tours/add-long-tours.component';
 
 
 @NgModule({
@@ -23,6 +26,8 @@ import { TodaybookingComponent } from './@component/todaybooking/todaybooking/to
     LoginComponent,
     LongtoursComponent,
     TodaybookingComponent,
+    AddDailyToursComponent,
+    AddLongToursComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { TodaybookingComponent } from './@component/todaybooking/todaybooking/to
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [shortTourService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

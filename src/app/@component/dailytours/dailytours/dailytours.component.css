@@ -1,10 +1,12 @@
 table {
     width: 100%;
-    margin: 10px;
+    
   }
 
-  mat-form-field{
-    margin: 10px;
+ 
+
+  .filter {
+    margin: 25px;
   }
 
   button{
@@ -16,6 +18,4 @@ table {
     width: 100%;
   }
   
-  td, th {
-    width: 25%;
-  }
+ 

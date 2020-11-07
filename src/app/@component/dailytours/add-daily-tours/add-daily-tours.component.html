@@ -1,0 +1,153 @@
+
+<div *ngIf="shortTour" style="margin: 50px;">
+    <div class="text-center">
+        <h3>الرحلات اليوميه</h3>
+    </div>
+    <form [formGroup]="shortTourForm" class="kt-form kt-form--group-seperator-dashed">
+
+        <p *ngIf="errorMessage">
+            {{errorMessage}}
+        </p>
+        <div class="kt-form__section kt-form__section--first">
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Client Name" formControlName="name" />
+                        <mat-error *ngIf="shortTourForm.controls['name'].errors?.required">Client Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong>Client Name</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Client Phone" formControlName="mobile" />
+                        <mat-error *ngIf="shortTourForm.controls['mobile'].errors?.required">Client Phone is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong>Client Phone</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Tour Name" formControlName="tourName" />
+                        <mat-error *ngIf="shortTourForm.controls['tourName'].errors?.required">Tour Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong>Tour Name</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput [matDatepicker]="picker" placeholder="Choose Tour Date"
+                            formControlName="tourDate" />
+                        <mat-error *ngIf="shortTourForm.controls['tourDate'].errors?.required">Tour Date is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint align="start">Please enter
+                            <strong>Tour Date</strong> in 'mm/dd/yyyy' format</mat-hint>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Number Of Adults" formControlName="personNumber" />
+                        <mat-error *ngIf="shortTourForm.controls['personNumber'].errors?.required">Enter Number Of
+                            Adults is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong> Number Of Adults</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Number Of Children" formControlName="childNumber" />
+                        <mat-error *ngIf="shortTourForm.controls['childNumber'].errors?.required">Enter Number Of
+                            Children is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong> Number Of Children</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div class="form-group kt-form__group row">
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Number Of Chairs" formControlName="chairNumber" />
+                        <mat-error *ngIf="shortTourForm.controls['chairNumber'].errors?.required">Enter Number Of
+                            Chairs is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong> Number Of Chairs</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Number Of Extra Chairs" formControlName="addChairNumber" />
+                        <mat-error *ngIf="shortTourForm.controls['addChairNumber'].errors?.required">Enter Number Of
+                            Extra Chairs is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong> Number Of Extra Chairs</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div class="form-group kt-form__group row">
+
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Paid" formControlName="paid" />
+                        <mat-error *ngIf="shortTourForm.controls['paid'].errors?.required">Paid is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong> Paid</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Remaining" formControlName="remaining" />
+                        <mat-error *ngIf="shortTourForm.controls['remaining'].errors?.required">Remaining is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-hint align="start">Please enter
+                            <strong> Number Of Chairs</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-dark" (click)="onSumbit()">Save</button>
+            </div>
+
+        </div>
+    </form>
+</div>
