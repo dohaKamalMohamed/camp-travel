@@ -1,20 +1,26 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
+.pricing-header {
+  max-width: 700px;
+}
+.text-center {
+  text-align: center !important;
+}
+/* .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
 }
 
-.container div{
-    border: 1px solid black;
-    border-radius: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 25px;
-    width: 50%;
-    padding: 10px;
- }
- span{
-     color: red;
- }
+.container div {
+  border: 1px solid black;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  width: 50%;
+  padding: 10px;
+}
+span {
+  color: red;
+} */

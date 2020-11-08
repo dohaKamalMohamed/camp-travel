@@ -1,13 +1,12 @@
-a{
-    margin-right: 25px;
-    color: white;
-    text-decoration: none;
-}
-
-mat-toolbar{
-    background-color: black;
+a {
+  margin-right: 25px;
+  color: white;
+  text-decoration: none;
 }
 
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
+.site-header {
+  background-color: rgba(0, 0, 0, 0.85);
+}
