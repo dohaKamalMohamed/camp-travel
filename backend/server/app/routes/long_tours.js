@@ -4,7 +4,7 @@ const { longTour } = require('../models/long_tours');
 
 router.get('/', async (req, res, next) => {
     try {
-        const longTours = await longTour.find().sort('longTourID').select('-_id -__v');
+        const longTours = await longTour.find().sort('longTourID').select('-_id -__v').sort({longTourID:-1});
 
         res.send({ result: true, data: longTours });
     } catch (err) {
@@ -14,10 +14,10 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        const longTour = await longTour.findOne({ longTourID: req.params.id }).select('-_id -__v');
+        const LongTour = await longTour.findOne({ longTourID: req.params.id }).select('-_id -__v');
 
-        if (!longTour) return res.send({ result: false, message: 'the longTour with the given ID was not found' });
-        res.send({ result: true, data: longTour });
+        if (!LongTour) return res.send({ result: false, message: 'the longTour with the given ID was not found' });
+        res.send({ result: true, data: LongTour });
     } catch (err) {
         next(err);
     }
@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
     try {
 
 
-        let longTour = new longTour(_.pick(req.body,
+        let LongTour = new longTour(_.pick(req.body,
             [
                 'name',
                 'mobile',
@@ -47,7 +47,7 @@ router.post('/', async (req, res, next) => {
 
 
 
-        await longTour.save();
+        await LongTour.save();
         res.send({ result: true, data: longTour });
     } catch (err) {
         next(err);
@@ -86,16 +86,16 @@ router.put('/:id', async (req, res, next) => {
 });
 
 
-router.delete('/delete/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
 
     try {
-        let longTour = await longTour.findOneAndDelete({ longTourID: req.params.id });
+        let LongTour = await longTour.findOneAndDelete({ longTourID: req.params.id });
 
-        if (!longTour) {
-            return res.status(400).send('this shop is not exist');
+        if (!LongTour) {
+            return res.send({ result: false, message: 'the Tour with the given ID was not found' });
         }
 
-        res.send(longTour);
+        res.send(LongTour);
     } catch (err) {
         next(err)
     }

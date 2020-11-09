@@ -9,20 +9,21 @@ import { LongtoursComponent } from './@component/longtours/longtours/longtours.c
 import { TodaybookingComponent } from './@component/todaybooking/todaybooking/todaybooking.component';
 import { AddDailyToursComponent } from './@component/dailytours/add-daily-tours/add-daily-tours.component';
 import { AddLongToursComponent } from './@component/longtours/add-long-tours/add-long-tours.component';
+import { AuthGuard } from './@guards/user.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent ,children:[
-    { path: '', redirectTo: 'booking', pathMatch: 'full' },
-    { path: 'booking', component: TodaybookingComponent },
-    { path: 'createuser', component: CreateuserComponent },
-    { path: 'dailytours', component: DailytoursComponent },
-    { path: 'addDailyTours', component: AddDailyToursComponent },
-    { path: 'editDailyTours/:id', component: AddDailyToursComponent },
-    { path: 'longtours', component: LongtoursComponent },
-    { path: 'addLongTours', component: AddLongToursComponent },
-    { path: 'editLongTours/:id', component: AddLongToursComponent },
+    { path: '', redirectTo: 'booking', pathMatch: 'full' ,canActivate: [AuthGuard]},
+    { path: 'booking', component: TodaybookingComponent ,canActivate: [AuthGuard]},
+    { path: 'createuser', component: CreateuserComponent ,canActivate: [AuthGuard] },
+    { path: 'dailytours', component: DailytoursComponent ,canActivate: [AuthGuard]},
+    { path: 'addDailyTours', component: AddDailyToursComponent ,canActivate: [AuthGuard] },
+    { path: 'editDailyTours/:id', component: AddDailyToursComponent ,canActivate: [AuthGuard]},
+    { path: 'longtours', component: LongtoursComponent ,canActivate: [AuthGuard] },
+    { path: 'addLongTours', component: AddLongToursComponent ,canActivate: [AuthGuard]},
+    { path: 'editLongTours/:id', component: AddLongToursComponent ,canActivate: [AuthGuard]},
   ] },
 
   { path: '**', redirectTo: '/login', pathMatch: 'full' },

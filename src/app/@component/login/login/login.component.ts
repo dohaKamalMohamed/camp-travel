@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { usersService } from 'src/app/@service/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,14 +11,15 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   submitted: boolean = false;
-  user ={email:'',password:''}
+  user = { email: '', password: '' }
   errorMsg: string = '';
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private userService: usersService
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -33,15 +35,21 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-     console.log(this.form.controls)
-    // this.authenticationService.login(this.f.email.value, this.f.password.value)
-    //   .subscribe(
-    //     data => {
-    //       this.router.navigate(['/home']);
-    //     },
-    //     error => {
-    //       this.errorMsg = error.error || error.statusText;
-    //       console.log(error);
-    //     });
+    console.log(this.form.controls)
+    this.userService.login(this.f.email.value, this.f.password.value)
+      .subscribe(
+        data => {
+          if (data.result == true) {
+            localStorage.setItem('campTraveUser', JSON.stringify(data.token))
+            this.router.navigate(['/home']);
+          } else {
+            this.errorMsg = data.message;
+          }
+
+        },
+        error => {
+          this.errorMsg = error.error || error.statusText;
+          console.log(error);
+        });
   }
 }

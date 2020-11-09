@@ -15,6 +15,9 @@ import { TodaybookingComponent } from './@component/todaybooking/todaybooking/to
 import { shortTourService } from './@service/short_service.service';
 import { AddDailyToursComponent } from './@component/dailytours/add-daily-tours/add-daily-tours.component';
 import { AddLongToursComponent } from './@component/longtours/add-long-tours/add-long-tours.component';
+import { longTourService } from './@service/long_tours.service';
+import { usersService } from './@service/user.service';
+import { AuthGuard } from './@guards/user.guard';
 
 
 @NgModule({
@@ -38,7 +41,7 @@ import { AddLongToursComponent } from './@component/longtours/add-long-tours/add
     FormsModule,
     HttpClientModule
   ],
-  providers: [shortTourService],
+  providers: [shortTourService,longTourService,usersService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

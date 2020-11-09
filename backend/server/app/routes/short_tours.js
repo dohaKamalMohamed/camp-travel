@@ -1,17 +1,25 @@
 const router = require('express').Router();
 const _ = require('lodash');
 const { shortTour } = require('../models/short_tours');
-
+const {longTour} = require('../models/long_tours')
 router.get('/', async (req, res, next) => {
     try {
-        const shortTours = await shortTour.find().sort('shortTourID').select('-_id -__v');
+        const shortTours = await shortTour.find().sort('shortTourID').select('-_id -__v').sort({shortTourID:-1});
 
         res.send({ result: true, data: shortTours });
     } catch (err) {
         next(err);
     }
+});  
+router.get('/getDailyBooking', async (req, res, next) => {
+    try {
+        const shortTours = await shortTour.count({updatedAt:{$gte:new Date().setHours(0,0,0,0),$lte:new Date().setHours(23,59,59,59)}});
+        const longTours = await longTour.count({updatedAt:{$gte:new Date().setHours(0,0,0,0),$lte:new Date().setHours(23,59,59,59)}});
+        res.send({ result: true, data: {shortTours:shortTours,longTours:longTours} });
+    } catch (err) {
+        next(err);
+    }
 });
-
 router.get('/:id', async (req, res, next) => {
     try {
         const ShortTour = await shortTour.findOne({ shortTourID: req.params.id }).select('-_id -__v');

@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    
+  }
+
+  .filter {
+    margin: 25px;
+  }
+
+  button{
+    margin: 25px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

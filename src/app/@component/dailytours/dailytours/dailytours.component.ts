@@ -7,7 +7,7 @@ import { shortTourService } from '../../../@service/short_service.service'
 import {  Router } from '@angular/router';
 
 
-@Component({
+@Component({  
   selector: 'app-dailytours',
   templateUrl: './dailytours.component.html',
   styleUrls: ['./dailytours.component.css']

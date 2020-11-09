@@ -9,7 +9,7 @@ export class LongTour {
     chairNumber:string;
     roomNumber: string;
     nightNumber: string;
-    addChairNumber: string;
+    addChairNumber: string; 
     hotelName: string;
     paid: string;
     remaining: string;

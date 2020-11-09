@@ -20,6 +20,10 @@ export class shortTourService {
     return this.http.get<any>(`${this.shortTourURL}`)
   } 
 
+  getDailyBooking():Observable<any> {
+    return this.http.get<any>(`${this.shortTourURL}/getDailyBooking`)
+  } 
+
   getShortTourByID(shortTourID):Observable<any>{
    return this.http.get<any>(`${this.shortTourURL}/${shortTourID}`, { headers: this.headers })
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { usersService } from 'src/app/@service/user.service';
 @Component({
   selector: 'app-createuser',
   templateUrl: './createuser.component.html',
@@ -15,6 +16,7 @@ export class CreateuserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private userService: usersService
   ) { }
 
   ngOnInit(){
@@ -34,15 +36,20 @@ export class CreateuserComponent implements OnInit {
       return;
     }
      console.log(this.form.controls)
-    // this.authenticationService.login(this.f.email.value, this.f.password.value)
-    //   .subscribe(
-    //     data => {
-    //       this.router.navigate(['/home']);
-    //     },
-    //     error => {
-    //       this.errorMsg = error.error || error.statusText;
-    //       console.log(error);
-    //     });
+     this.userService.postUser(this.f.email.value, this.f.password.value)
+     .subscribe(
+       data => {
+         if (data.result == true) {
+          this.router.navigateByUrl('/home/booking')
+         } else {
+           this.errorMsg = data.message;
+         }
+
+       },
+       error => {
+         this.errorMsg = error.error || error.statusText;
+         console.log(error);
+       });
   }
  
 }
