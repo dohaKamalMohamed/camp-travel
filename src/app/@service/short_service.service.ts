@@ -32,6 +32,10 @@ export class shortTourService {
    return this.http.post<any>(`${this.shortTourURL}`, shortTour)
   }
 
+  findShortTour(body):Observable<any>{
+    return this.http.post<any>(`${this.shortTourURL}/find`, body)
+   }
+
   updatelShortTour(shortTourID:number,shortTour:shortTour):Observable<any>{
    return this.http.put<any>(`${this.shortTourURL}/${shortTourID}`, shortTour ,{ headers: this.headers })
   }

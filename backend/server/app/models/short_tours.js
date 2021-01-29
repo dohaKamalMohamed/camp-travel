@@ -4,7 +4,7 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const shortTourSchema = new mongoose.Schema({
     name: {
-        type: String,
+        type: String, 
         required: true,
     },
 
@@ -19,12 +19,12 @@ const shortTourSchema = new mongoose.Schema({
         trim: true,
     },
     tourDate: {
-        type: String,
+        type: Date,
         required: true,
         trim: true,
     },
 
-    personNumber: {
+    personNumber: { 
         type: String,
         required: true,
         trim: true,
@@ -32,7 +32,7 @@ const shortTourSchema = new mongoose.Schema({
 
     childNumber: {
         type: String,
-        required: true,
+        required: true, 
         trim: true,
     },
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { usersService } from 'src/app/@service/user.service';
 import { shortTourService } from '../../../@service/short_service.service'
 @Component({
   selector: 'app-home',
@@ -10,6 +12,9 @@ export class HomeComponent implements OnInit {
   shortTours
   constructor(
     private shortTourService: shortTourService,
+    private userService:usersService,
+    private router:Router
+
   ) { }
 
   ngOnInit(): void {
@@ -20,5 +25,10 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  logOut(){
+    this.userService.logout();
+    this.router.navigate(['/login']);
+    }
  
 }

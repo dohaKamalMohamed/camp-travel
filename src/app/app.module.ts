@@ -18,6 +18,8 @@ import { AddLongToursComponent } from './@component/longtours/add-long-tours/add
 import { longTourService } from './@service/long_tours.service';
 import { usersService } from './@service/user.service';
 import { AuthGuard } from './@guards/user.guard';
+import { InvoiceComponent } from './@component/invoice/invoice.component';
+import { MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { AuthGuard } from './@guards/user.guard';
     TodaybookingComponent,
     AddDailyToursComponent,
     AddLongToursComponent,
+    InvoiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,23 @@ import { AuthGuard } from './@guards/user.guard';
     FormsModule,
     HttpClientModule
   ],
-  providers: [shortTourService,longTourService,usersService,AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [shortTourService,longTourService,usersService,AuthGuard, 
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },{
+    provide: MAT_DIALOG_DEFAULT_OPTIONS,
+    useValue: {
+      hasBackdrop: true,
+      panelClass: 'kt-mat-dialog-container__wrapper',
+      height: 'auto',
+      width: '900px'
+    },
+    
+  },],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    InvoiceComponent
+  ]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-
+<mat-card class="example-card">
 <div *ngIf="shortTour" style="margin: 50px;">
     <div class="text-center">
         <h3>الرحلات اليوميه</h3>
@@ -37,7 +37,12 @@
             <div class="form-group kt-form__group row">
                 <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
-                        <input matInput placeholder="Enter Tour Name" formControlName="tourName" />
+                       
+                            <mat-label>Choose Tour</mat-label>
+                            <mat-select  formControlName="tourName">
+                              <mat-option *ngFor="let j of shortTours" [value]="j.value">{{j.name}}</mat-option>
+                            </mat-select>
+    
                         <mat-error *ngIf="shortTourForm.controls['tourName'].errors?.required">Tour Name is
                             <strong>required</strong>
                         </mat-error>
@@ -49,7 +54,7 @@
                 <div class="col-lg-6  col-md-6  col-sm-6 kt-margin-bottom-20-mobile">
                     <mat-form-field class="mat-form-field-fluid">
                         <input matInput [matDatepicker]="picker" placeholder="Choose Tour Date"
-                            formControlName="tourDate" />
+                            formControlName="tourDate"/>
                         <mat-error *ngIf="shortTourForm.controls['tourDate'].errors?.required">Tour Date is
                             <strong>required</strong>
                         </mat-error>
@@ -151,3 +156,5 @@
         </div>
     </form>
 </div>
+
+</mat-card>

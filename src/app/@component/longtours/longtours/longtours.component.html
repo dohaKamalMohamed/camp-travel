@@ -9,7 +9,8 @@
 
 
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8 example-container" >
+    <div class="example-table-container">
     <table mat-table [dataSource]="dataSource" matSort>
 
         <!-- ID Column -->
@@ -93,6 +94,8 @@
             <td class="mat-cell" colspan="7">No data matching the filter "{{input.value}}"</td>
         </tr>
     </table>
+</div>
+
 
     <mat-paginator [pageSize]="10" [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
 </div>

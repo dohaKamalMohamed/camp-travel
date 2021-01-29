@@ -9,6 +9,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [],
@@ -22,7 +25,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTableModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCardModule,
+    MatSelectModule,
   ],
   exports:[
     MatFormFieldModule,
@@ -33,7 +38,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTableModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
-  ]
+    MatNativeDateModule,
+    MatCardModule,
+    MatSelectModule
+  ],
+  
 })
 export class AngularMaterialModule { }

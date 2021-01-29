@@ -12,8 +12,8 @@
   <a routerLink="/home/longtours"> LogOut </a>
 </mat-toolbar> -->
 
-<nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
+<!-- <nav class="site-header  navbar navbar-expand-lg">
+  <!-- <div class="container d-flex flex-column flex-md-row justify-content-between"> -->
     <!-- <a class="py-2" href="#" aria-label="Product">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,20 +36,47 @@
           ></path>
         </svg>
       </a> -->
-    <a class="py-2 d-none d-md-inline-block" routerLink="/home">Home</a>
+    <!-- <a class="py-2 d-none d-md-inline-block" routerLink="/home">Home</a>
     <a class="py-2 d-none d-md-inline-block" routerLink="/home/createuser"
       >Create User</a
     >
-    <a class="py-2 d-none d-md-inline-block" routerLink="/home/dailytours"
-      >Short Tours</a
-    >
+    
     <a class="py-2 d-none d-md-inline-block" routerLink="/home/longtours"
       >Long Tours</a
     >
     <span class="example-spacer"></span>
     <a class="py-2 d-none d-md-inline-block" routerLink="/home/longtours"
       >LogOut</a
-    >
+    > -->
+  <!-- </div> 
+</nav> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/home">Home</a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        
+        <a class="nav-link" routerLink="/home/createuser"
+        >Create User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"routerLink="/home/longtours"
+        >Long Tours</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/dailytours"
+        >Short Tours</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" (click)="logOut()">LogOut</button>
+    </form>
   </div>
 </nav>
 <router-outlet></router-outlet>

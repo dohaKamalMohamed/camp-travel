@@ -31,6 +31,19 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+router.post('/find', async (req, res, next) => {
+    try {
+        let startDate = new Date(req.body.date).setHours(0, 0, 0)
+      let   endDate = new Date(req.body.date).setHours(23, 59, 59)
+        const ShortTour = await shortTour.find({ tourName: req.body.tourName ,tourDate : { $gte: new Date(startDate), $lte: new Date(endDate) } }).select('-_id -__v');
+
+        if (!ShortTour) return res.send({ result: false, message: 'the shortTour with the given date was not found' });
+        res.send({ result: true, data: ShortTour });
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.post('/', async (req, res, next) => {
     try {
 

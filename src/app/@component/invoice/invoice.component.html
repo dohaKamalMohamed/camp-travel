@@ -1,0 +1,102 @@
+<div #billingFile id="billingFile" *ngIf="tour" class="inv">
+    <div class="header-container">
+        <div>
+            <img src="../../../assets/logo.jpg" width="130px" height="130px" style="border-radius:50%">
+        </div> 
+    </div>
+
+    <div class="body-container kt-invoice__body">
+        <div class="kt-invoice__items">
+            <h5 style="font-weight:bold;text-align:center"> Client Information</h5>
+
+            <div class="kt-invoice__item" >
+                <span 
+                    style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">NAME:</span>
+                <span>{{tour.name}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">MOBILE:
+                    </span>
+                <span>{{tour.mobile}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">ADULT NUMBERS:
+                    :</span>
+                <span>{{tour.personNumber}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">
+                      CHILD NUMBER:</span>
+                <span>{{tour.childNumber}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">
+                       CHAIT NUMBERS :</span>
+                <span>{{tour.chairNumber}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">
+                        EXTRA CHAIRS NUMBER</span>
+                <span>{{tour.addChairNumber}}</span>
+            </div>
+        </div>
+        <div class="kt-invoice__items">
+            <h6 style="font-weight:bold;text-align:center">Tour Information</h6>
+
+            <div class="kt-invoice__item">
+                <span
+                    style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">TOUR NAME:</span>
+                <span>{{getTourName(tour.tourName)}}</span>
+            </div>
+
+            <div class="kt-invoice__item">
+                <span
+                    style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">TOUR DATE:</span>
+                <span>{{tour.tourDate | date: 'dd/MM/yyyy' }}</span>
+            </div>
+
+
+        </div>
+        <div class="kt-invoice__items">
+            <h6 style="font-weight:bold;text-align:center">Payment Information</h6>
+
+            <div class="kt-invoice__item">
+                <span
+                    style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">DATE:</span>
+                <span>{{tour.createdAt| date: 'dd/MM/yyyy'}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">TIME
+                    :</span>
+                <span>{{tour.createdAt | date:'HH:mm:ss a' : 'UTC+02:00'}}</span>
+            </div>
+
+
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">PAID
+                     :</span>
+                <span>{{tour.paid}}</span>
+            </div>
+            <div class="kt-invoice__item">
+                <span style="margin:5px;font-family: 'Roboto', sans-serif;font-size: 13px;font-weight:bold;">REMAINING
+                     :</span>
+                <span>{{tour.remaining}}</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="kt-invoice__actions">
+    <div class="kt-invoice__container">
+        <button style="margin:10px" type="button" class="btn btn-brand btn-primary" (click)="print()">Print
+            Invoice</button>
+    </div>
+</div>

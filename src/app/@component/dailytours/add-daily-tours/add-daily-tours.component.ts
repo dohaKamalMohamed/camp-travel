@@ -17,6 +17,22 @@ export class AddDailyToursComponent implements OnInit {
   errorMessage: string = '';
   edit: boolean = false
   id
+  tourName
+  date
+  shortTours = [
+    {value:"cairo", name:"مزارات القاهره "},
+    {value:"alex", name:"الاسكندريه"},
+    {value:"africano", name:"افريكانو بارك "},
+    {value:"rayan", name:" وادي الريان"},
+    {value:"family", name:" فاميلي بارك"},
+    {value:"sokhna", name:" يخت السخنه"},
+    {value:"dayuse", name:" داي يوز السخنه"},
+    {value:"portsaid", name:"بورسعيد "},
+    {value:"film", name:"مسرحيه "},
+    {value:"dream", name:" دريم بارك"},
+    {value:"aquapark", name:" اكوا بارك"},
+    {value:"snow", name:"مدينه التلج"},
+  ]
 
 
 

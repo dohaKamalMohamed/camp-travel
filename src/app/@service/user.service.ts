@@ -31,6 +31,11 @@ export class usersService {
     }
     else return 
   }
+
+  logout() {
+    localStorage.removeItem('campTraveUser');
+ 
+}
  
 
  
